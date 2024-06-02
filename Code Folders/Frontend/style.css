@@ -1,0 +1,33 @@
+
+body {
+    font-family: Arial, sans-serif;
+    background-image: url('endangered.jpg');
+}
+
+.hero {
+    
+    background-size: cover;
+}
+
+
+.features.card {
+    border: none;
+    box-shadow: 0 4px 8px greenyellow;
+    
+}
+
+
+
+
+.modal {
+    max-width: 600px; 
+  }
+  
+  .modal-body {
+    padding: 20px;
+  }
+  
+  .btn-close {
+    margin-top: -10px;
+  }
+  
