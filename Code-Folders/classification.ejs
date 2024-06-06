@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+</head>
+<body>
+    <script>
+        let model;
+            async function loadModel() {
+                model = await tf.loadLayersModel('https://storage.googleapis.com/tfjs-models/tfjs/mobilenet_v1_0.25_224/model.json');
+                console.log('Model loaded');
+            }
+            loadModel();
+    
+            // Handle image upload and display
+            document.getElementById('image-upload').addEventListener('change', (event) => {
+                const file = event.target.files[0];
+                const reader = new FileReader();
+                reader.onload = () => {
+                    const img = document.getElementById('uploaded-image');
+                    img.src = reader.result;
+                    img.style.display = 'block';
+                };
+                reader.readAsDataURL(file);
+            });
+    
+            // Classify image when button is clicked
+            document.getElementById('classify-button').addEventListener('click', async () => {
+                const img = document.getElementById('uploaded-image');
+                if (img.src === "#") {
+                    alert("Please upload an image first.");
+                    return;
+                }
+                const tensor = tf.browser.fromPixels(img)
+                    .resizeNearestNeighbor([224, 224])
+                    .toFloat()
+                    .expandDims();
+                const prediction = await model.predict(tensor).data();
+                const topPrediction = Array.from(prediction).indexOf(Math.max(...prediction));
+                
+                // Display the result
+                const resultElement = document.getElementById('classification-result');
+                resultElement.textContent = `Prediction: ${topPrediction}`;
+            });
+    
+            // Existing modal and button event listeners
+            document.querySelector('.btn-learn-more').addEventListener('click', () => {
+                const modal = new bootstrap.Modal(document.getElementById('learnMoreModal'));
+                modal.show();
+            });
+    
+            document.querySelector('.btn-donate-now').addEventListener('click', () => {
+                const modal = new bootstrap.Modal(document.getElementById('donateNowModal'));
+                modal.show();
+            });
+    </script>
+    
+</body>
+</html>

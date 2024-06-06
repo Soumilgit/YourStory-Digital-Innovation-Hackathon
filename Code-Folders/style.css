@@ -1,0 +1,78 @@
+
+body {
+    font-family: Arial, sans-serif;
+    background-image: url('endge.png');
+    background-repeat: no-repeat;
+    
+    background-size: 1550px 900px;
+    
+    
+}
+/*body {
+    font-family: Arial, sans-serif;
+    
+    
+    background-size: 1520px 1380px;
+    
+}
+body {
+  font-family: Arial, sans-serif;
+  
+  
+  background-size: 1580px 1480px;
+  
+}*/
+.hero {
+    
+    background-size: cover;
+}
+
+
+.features.card {
+    padding:0%;
+    border:none;
+    box-shadow: 0 4px 8px greenyellow;
+    
+}
+.card-body {
+  /* Prevents text from overflowing */
+  word-wrap: break-word;
+
+  /* Removes margin at the bottom */
+  
+
+  /* Includes padding and borders in the element's total width and height */
+  box-sizing: border-box;
+
+  /* Adjusts the minimum height to accommodate content */
+  min-height: 100px;
+
+  /* Optional: Adjusts padding to give more space inside the card */
+  padding: 20px;
+
+  /* Optional: Sets a max width to ensure the content doesn't stretch too wide */
+  max-width: 90%;
+
+  /* Centers the text vertically if the content is less than the card height */
+  display: flex;
+  flex-direction: column;
+  
+ 
+}
+
+
+
+
+
+.modal {
+    max-width: 600px; 
+  }
+  
+  .modal-body {
+    padding: 20px;
+  }
+  
+  .btn-close {
+    margin-top: -10px;
+  }
+  
